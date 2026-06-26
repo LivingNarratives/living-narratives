@@ -1,676 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GOV" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIVING NARRATIVES • PURE CHAOS, ZERO RULES</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap');
-        
-        body {
-            font-family: 'Space Grotesk', system_ui, sans-serif;
-        }
-        .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
-        
-        .glitch {
-            position: relative;
-            animation: glitch-skew 1.2s infinite linear alternate-reverse;
-        }
-        .glitch::before, .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-        }
-        .glitch::before {
-            left: 2px; text-shadow: -2px 0 #ff00aa;
-            animation: glitch-anim 1.5s infinite linear alternate-reverse;
-            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-        }
-        .glitch::after {
-            left: -2px; text-shadow: 2px 0 #00f0ff;
-            animation: glitch-anim2 2s infinite linear alternate-reverse;
-            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-        }
-        @keyframes glitch-anim {
-            0% { transform: translate(0); } 20% { transform: translate(-3px, 3px); } 40% { transform: translate(-3px, -3px); }
-            60% { transform: translate(3px, 3px); } 80% { transform: translate(3px, -3px); } 100% { transform: translate(0); }
-        }
-        @keyframes glitch-anim2 {
-            0% { transform: translate(0); } 20% { transform: translate(3px, -3px); } 40% { transform: translate(3px, 3px); }
-            60% { transform: translate(-3px, -3px); } 80% { transform: translate(-3px, 3px); } 100% { transform: translate(0); }
-        }
-        
-        .chaos-button {
-            transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative; overflow: hidden;
-        }
-        .chaos-button:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 0 40px rgba(255, 0, 170, 0.6);
-        }
-        .chaos-button:active { transform: scale(0.96); }
-        
-        .fun-card {
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-            background: linear-gradient(145deg, #18181b, #27272a);
-        }
-        .fun-card:hover {
-            transform: translateY(-6px) rotate(0.8deg);
-            box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.5);
-        }
-        
-        .section-header {
-            font-size: 2.75rem; line-height: 1.05; font-weight: 800; letter-spacing: -0.05em;
-        }
-        
-        .unhinged-text {
-            background: linear-gradient(90deg, #ff00aa, #c026ff, #00f0ff);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: hue-shift 3.5s linear infinite;
-        }
-        @keyframes hue-shift {
-            0%,100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(60deg); }
-        }
-        
-        .result-box {
-            min-height: 140px;
-            font-size: 1.15rem; line-height: 1.6;
-        }
-        
-        .floating {
-            animation: floaty 2.8s ease-in-out infinite;
-        }
-        @keyframes floaty {
-            0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); }
-        }
-        
-        .nav-link { transition: all 0.2s ease; }
-        .nav-link:hover { color: #ff00aa; transform: translateX(5px); }
-        
-        .chaos-bg {
-            background-image: 
-                linear-gradient(rgba(255,0,170,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,240,255,0.04) 1px, transparent 1px);
-            background-size: 45px 45px;
-        }
-        
-        .spicy { color: #ff6b6b; }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The official portal of the Federal Department of Confirmed Existence (D.O.C.E.). Apply today to be officially recognized as existing." />
+<meta name="keywords" content="existence, bureaucracy, forms, government, confirmed, duck, ontology, are you real" />
+<meta name="author" content="The Department, obviously" />
+<meta name="robots" content="index, follow, exist, comply" />
+<meta property="og:title" content="D.O.C.E. — Apply To Exist Today" />
+<meta property="og:description" content="You may not currently exist. We can help. Form 27-B/6 is now accepting submissions." />
+<title>D.O.C.E. — Federal Department of Confirmed Existence</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230a2342' stroke='%23c9a227' stroke-width='5'/%3E%3Ctext x='50' y='66' font-size='48' text-anchor='middle' fill='%23c9a227'%3E%3F%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/style.css" />
 </head>
-<body class="bg-zinc-950 text-white overflow-x-hidden">
-    <!-- NAV -->
-    <nav class="border-b border-white/10 bg-zinc-950/90 backdrop-blur-xl sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-x-3 cursor-pointer" onclick="logoChaos()">
-                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-cyan-400 flex items-center justify-center">
-                    <i class="fa-solid fa-bomb text-white text-3xl"></i>
-                </div>
-                <div>
-                    <span class="font-black tracking-tighter text-3xl glitch" data-text="LIVING">LIVING</span>
-                    <span class="font-black tracking-tighter text-3xl">CHAOS</span>
-                </div>
-            </div>
-            
-            <div class="flex items-center gap-x-7 text-sm font-semibold">
-                <a href="#playground" class="nav-link text-white/80 hover:text-white">PLAYGROUND</a>
-                <a href="#spicy" class="nav-link text-white/80 hover:text-white">SPICY ZONE</a>
-                <a href="#feral" class="nav-link text-white/80 hover:text-white">FERAL METER</a>
-                <button onclick="randomGlobalChaos()" 
-                        class="px-5 py-2 rounded-3xl border border-white/20 hover:border-white/50 text-xs font-mono tracking-[2px] flex items-center gap-x-2 hover:bg-white/5">
-                    <i class="fa-solid fa-dice"></i>
-                    <span>FEELING LUCKY?</span>
-                </button>
-            </div>
-        </div>
-    </nav>
+<body class="booting">
 
-    <!-- HERO -->
-    <header class="max-w-5xl mx-auto px-6 pt-16 pb-14 text-center">
-        <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-3xl bg-white/5 border border-white/10 mb-6">
-            <div class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></div>
-            <span class="text-xs font-mono tracking-[3.5px] text-emerald-400">NO RULES • MAXIMUM VIBES • DANGEROUSLY FUN</span>
-        </div>
-        
-        <h1 class="text-7xl md:text-8xl font-black tracking-tighter leading-none mb-3">
-            WELCOME TO THE<br>
-            <span class="unhinged-text glitch" data-text="CHAOS">CHAOS</span>
-        </h1>
-        
-        <p class="max-w-lg mx-auto text-2xl text-white/70 tracking-tight mb-9">
-            Zero chill. Infinite laughs. Buttons that will ruin you (in a good way).
+<!-- ===================== BIOS / BOOT SCREEN ===================== -->
+<div id="bios" class="bios">
+  <div class="bios-inner">
+    <pre class="bios-logo">
+   ____   ___   ____ _____      ___  ____
+  |  _ \ / _ \ / ___| ____|    / _ \/ ___|
+  | | | | | | | |   |  _|     | | | \___ \
+  | |_| | |_| | |___| |___    | |_| |___) |
+  |____/ \___/ \____|_____|    \___/|____/
+    </pre>
+    <div class="bios-line">DOCE-OS BIOS v2.7.31 — Department Property. Unauthorized Existence Prohibited.</div>
+    <div class="bios-line">Copyright (c) 1973-∞ The Department. All realities reserved.</div>
+    <div class="bios-line">&nbsp;</div>
+    <div id="bios-log" class="bios-log"></div>
+    <div class="bios-progress"><div id="bios-bar" class="bios-bar"></div></div>
+    <div id="bios-status" class="bios-status">Initializing existence subsystems...</div>
+    <div class="bios-hint">Press any key to skip mandatory boot sequence (you may not skip it).</div>
+  </div>
+</div>
+
+<!-- ===================== COOKIE / CONSENT MODAL ===================== -->
+<div id="consent" class="consent hidden" role="dialog" aria-modal="true">
+  <div class="consent-card">
+    <h2>🍪 NOTICE OF NON-OPTIONAL CONSENT</h2>
+    <p>This portal uses cookies, biscuits, crackers, and at least one (1) emotionally significant scone to function.</p>
+    <p>By continuing, you acknowledge that the Department already knows what you did. We have a form about it. It is Form 9.</p>
+    <ul class="consent-list">
+      <li>✔ Essential cookies (load-bearing)</li>
+      <li>✔ Surveillance cookies (affectionate)</li>
+      <li>✔ Existential cookies (concerning)</li>
+    </ul>
+    <div class="consent-actions">
+      <button id="consent-accept" class="btn btn-gold">I ACCEPT ALL CONSEQUENCES</button>
+      <button id="consent-decline" class="btn btn-ghost">Decline</button>
+    </div>
+    <div class="consent-fine">Declining is also a form of accepting. — Subsection 4(b)(ii), The Department.</div>
+  </div>
+</div>
+
+<!-- ===================== TOP ALERT BAR ===================== -->
+<div id="alertbar" class="alertbar">
+  <span class="alert-dot"></span>
+  <div class="marquee"><div id="marquee-track" class="marquee-track"></div></div>
+</div>
+
+<!-- ===================== MAIN PORTAL ===================== -->
+<header class="gov-header hidden" id="gov-header">
+  <div class="seal-wrap">
+    <div id="bigseal" class="bigseal" title="Official Seal of the Department. Do not touch.">
+      <svg viewBox="0 0 200 200" class="seal-svg" aria-hidden="true">
+        <circle cx="100" cy="100" r="94" class="seal-ring-outer"/>
+        <circle cx="100" cy="100" r="78" class="seal-ring-inner"/>
+        <g id="seal-text" class="seal-text"></g>
+        <text x="100" y="118" text-anchor="middle" class="seal-q">?</text>
+        <circle cx="84" cy="92" r="9" class="googly"/><circle cx="84" cy="94" r="4" class="pupil pupil-l"/>
+        <circle cx="116" cy="92" r="9" class="googly"/><circle cx="116" cy="94" r="4" class="pupil pupil-r"/>
+      </svg>
+    </div>
+  </div>
+  <div class="gov-title">
+    <div class="gov-eyebrow">An Official Portal of a Real and Definitely Existing Government</div>
+    <h1>Federal Department of <span class="gold">Confirmed Existence</span></h1>
+    <div class="gov-sub">Motto: <em>"Probamus te esse" — We prove that you are.</em></div>
+  </div>
+  <div class="gov-tools">
+    <button id="mute" class="iconbtn" title="Toggle hold music & sound">🔊</button>
+    <button id="open-achievements" class="iconbtn" title="Citations of Merit">🏅</button>
+    <div class="threat">
+      <span class="threat-label">EXISTENCE THREAT LEVEL</span>
+      <span id="threat-level" class="threat-pill">BEIGE</span>
+    </div>
+  </div>
+</header>
+
+<!-- ticker -->
+<div id="ticker" class="ticker hidden"><div id="ticker-track" class="ticker-track"></div></div>
+
+<main id="portal" class="portal hidden">
+
+  <!-- LEFT: queue + stats -->
+  <aside class="col col-left">
+    <section class="panel queue-panel">
+      <h3>🎫 NOW SERVING</h3>
+      <div id="now-serving" class="now-serving">000000001</div>
+      <div class="queue-sub">Your number: <span id="your-number">—</span></div>
+      <button id="take-number" class="btn btn-gold full">TAKE A NUMBER</button>
+      <div id="queue-note" class="queue-note">Estimated wait: calculating...</div>
+    </section>
+
+    <section class="panel stats-panel">
+      <h3>📊 LIVE EXISTENCE STATISTICS</h3>
+      <ul class="stat-list">
+        <li>Confirmed Existers <b id="stat-confirmed">0</b></li>
+        <li>Pending Realness <b id="stat-pending">0</b></li>
+        <li>Forms In Circulation <b id="stat-forms">0</b></li>
+        <li>Ducks Regulated Today <b id="stat-ducks">0</b></li>
+        <li>Toner Remaining <b id="stat-toner">11%</b></li>
+      </ul>
+    </section>
+
+    <section class="panel visitor-panel">
+      <h3>👁️ VISITORS</h3>
+      <div id="visitor-counter" class="visitor-counter">00000000</div>
+      <div class="visitor-sub">You are visitor number unknowable. Best viewed in Netscape.</div>
+    </section>
+  </aside>
+
+  <!-- CENTER: the application -->
+  <section class="col col-center">
+    <div class="panel hero-panel">
+      <div class="stamp-zone" id="stamp-zone">
+        <h2 class="hero-title">Do You Currently Exist?</h2>
+        <p class="hero-lead">
+          An estimated <b id="nonexist-count">3,000,000,001</b> individuals are operating without valid
+          existence credentials. Penalties may include: ceasing to be, mild ceasing to be, and a strongly worded letter.
         </p>
-        
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button onclick="document.getElementById('playground').scrollIntoView({ behavior: 'smooth' })" 
-                    class="chaos-button group px-10 py-4 bg-white text-black font-bold rounded-3xl flex items-center justify-center gap-x-3 text-xl shadow-2xl">
-                <span>ENTER THE CHAOS</span>
-                <i class="fa-solid fa-arrow-right group-active:rotate-45 transition"></i>
-            </button>
-            
-            <button onclick="triggerBigRedButton()" 
-                    class="px-9 py-4 border-2 border-pink-500 hover:bg-pink-500/10 text-pink-400 rounded-3xl flex items-center gap-x-3 text-xl font-bold transition">
-                <i class="fa-solid fa-exclamation-triangle"></i>
-                <span>DO NOT PRESS</span>
-            </button>
+        <div class="existence-meter">
+          <div class="em-label">YOUR CERTIFIED REALNESS</div>
+          <div class="em-bar"><div id="em-fill" class="em-fill"></div></div>
+          <div id="em-pct" class="em-pct">0% REAL — Provisional Ghost</div>
         </div>
-        
-        <div class="mt-10 text-xs font-mono tracking-[4px] text-white/40">SCROLL IF YOU DARE</div>
-    </header>
-
-    <!-- PLAYGROUND -->
-    <section id="playground" class="max-w-6xl mx-auto px-6 py-16 border-t border-white/10 chaos-bg">
-        <div class="text-center mb-10">
-            <div class="inline px-4 py-1 rounded-2xl bg-pink-500/10 text-pink-400 text-xs font-mono tracking-widest">THE MAIN EVENT</div>
-            <h2 class="section-header mt-2">THE UNHINGED<br>PLAYGROUND</h2>
-            <p class="text-white/60 mt-3">Pick a button. Regret nothing. Laugh everything.</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <!-- Button 1 -->
-            <div onclick="giveSpicyCompliment()" class="fun-card group border border-white/10 hover:border-pink-500/50 rounded-3xl p-7 cursor-pointer">
-                <div class="flex items-center gap-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-2xl bg-pink-500/20 flex items-center justify-center">
-                        <i class="fa-solid fa-heart text-pink-400 text-3xl"></i>
-                    </div>
-                    <div class="font-bold text-2xl">Spicy Compliment</div>
-                </div>
-                <div class="text-white/70">Get absolutely destroyed by the nicest, spiciest thing anyone has ever said to you.</div>
-                <div class="mt-6 text-xs text-pink-400 flex items-center gap-x-2">
-                    <i class="fa-solid fa-play"></i> <span class="font-mono">CLICK ME</span>
-                </div>
-            </div>
-
-            <!-- Button 2 -->
-            <div onclick="randomFeralAffirmation()" class="fun-card group border border-white/10 hover:border-cyan-500/50 rounded-3xl p-7 cursor-pointer">
-                <div class="flex items-center gap-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 flex items-center justify-center">
-                        <i class="fa-solid fa-skull text-cyan-400 text-3xl"></i>
-                    </div>
-                    <div class="font-bold text-2xl">Feral Affirmation</div>
-                </div>
-                <div class="text-white/70">You are a beautiful disaster and the universe is proud of you. Probably.</div>
-                <div class="mt-6 text-xs text-cyan-400 flex items-center gap-x-2">
-                    <i class="fa-solid fa-play"></i> <span class="font-mono">CLICK ME</span>
-                </div>
-            </div>
-
-            <!-- Button 3 -->
-            <div onclick="randomChaosDateIdea()" class="fun-card group border border-white/10 hover:border-purple-500/50 rounded-3xl p-7 cursor-pointer">
-                <div class="flex items-center gap-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center">
-                        <i class="fa-solid fa-calendar-heart text-purple-400 text-3xl"></i>
-                    </div>
-                    <div class="font-bold text-2xl">Chaos Date Idea</div>
-                </div>
-                <div class="text-white/70">Because normal dates are boring and you deserve better (or worse, depending on the vibe).</div>
-                <div class="mt-6 text-xs text-purple-400 flex items-center gap-x-2">
-                    <i class="fa-solid fa-play"></i> <span class="font-mono">CLICK ME</span>
-                </div>
-            </div>
-
-            <!-- Button 4 -->
-            <div onclick="spicyWouldYouRather()" class="fun-card group border border-white/10 hover:border-orange-500/50 rounded-3xl p-7 cursor-pointer">
-                <div class="flex items-center gap-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-2xl bg-orange-500/20 flex items-center justify-center">
-                        <i class="fa-solid fa-question text-orange-400 text-3xl"></i>
-                    </div>
-                    <div class="font-bold text-2xl">Spicy Would You Rather</div>
-                </div>
-                <div class="text-white/70">Choose your poison. Both options are unhinged. You're welcome.</div>
-                <div class="mt-6 text-xs text-orange-400 flex items-center gap-x-2">
-                    <i class="fa-solid fa-play"></i> <span class="font-mono">CLICK ME</span>
-                </div>
-            </div>
-
-            <!-- Button 5 -->
-            <div onclick="randomRoast()" class="fun-card group border border-white/10 hover:border-rose-500/50 rounded-3xl p-7 cursor-pointer">
-                <div class="flex items-center gap-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-2xl bg-rose-500/20 flex items-center justify-center">
-                        <i class="fa-solid fa-fire text-rose-400 text-3xl"></i>
-                    </div>
-                    <div class="font-bold text-2xl">Gentle Roast</div>
-                </div>
-                <div class="text-white/70">Lovingly bullied. Zero damage, maximum giggles.</div>
-                <div class="mt-6 text-xs text-rose-400 flex items-center gap-x-2">
-                    <i class="fa-solid fa-play"></i> <span class="font-mono">CLICK ME</span>
-                </div>
-            </div>
-
-            <!-- Button 6 -->
-            <div onclick="randomHotTake()" class="fun-card group border border-white/10 hover:border-emerald-500/50 rounded-3xl p-7 cursor-pointer">
-                <div class="flex items-center gap-x-4 mb-4">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center">
-                        <i class="fa-solid fa-lightbulb text-emerald-400 text-3xl"></i>
-                    </div>
-                    <div class="font-bold text-2xl">Unhinged Hot Take</div>
-                </div>
-                <div class="text-white/70">The internet's worst (best) opinions, delivered fresh to your face.</div>
-                <div class="mt-6 text-xs text-emerald-400 flex items-center gap-x-2">
-                    <i class="fa-solid fa-play"></i> <span class="font-mono">CLICK ME</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SPICY ZONE -->
-    <section id="spicy" class="max-w-5xl mx-auto px-6 py-16 border-t border-white/10">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-8">
-                <div class="inline px-4 py-1 rounded-2xl bg-red-500/10 text-red-400 text-xs font-mono tracking-widest">DANGER ZONE</div>
-                <h2 class="section-header mt-2">THE SPICY<br>CHAOS ZONE</h2>
-                <p class="text-white/60 mt-2">Things are about to get questionable. In the best way.</p>
-            </div>
-
-            <div class="fun-card border border-white/10 rounded-3xl p-9">
-                <div class="flex items-center justify-between mb-6">
-                    <div>
-                        <div class="font-bold text-2xl">Spicy Mode</div>
-                        <div class="text-sm text-white/50">Turns everything up to 11. You asked for this.</div>
-                    </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" id="spicy-toggle" class="sr-only peer" onchange="toggleSpicyMode()">
-                        <div class="w-14 h-8 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-pink-500"></div>
-                    </label>
-                </div>
-
-                <div id="spicy-result" class="result-box bg-zinc-900/60 border border-white/10 rounded-2xl p-7 text-lg">
-                    Hit any button above or toggle Spicy Mode to see what happens...
-                </div>
-
-                <div class="mt-6 flex flex-wrap gap-3">
-                    <button onclick="summonSpicyChaos()" class="flex-1 px-6 py-3.5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold rounded-3xl flex items-center justify-center gap-x-2">
-                        <i class="fa-solid fa-pepper-hot"></i>
-                        <span>SUMMON MAXIMUM SPICE</span>
-                    </button>
-                    <button onclick="clearResults()" class="px-6 py-3.5 border border-white/20 hover:bg-white/5 rounded-3xl font-medium">
-                        CLEAR
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FERAL METER -->
-    <section id="feral" class="max-w-4xl mx-auto px-6 py-16 border-t border-white/10">
-        <div class="text-center mb-10">
-            <div class="inline px-4 py-1 rounded-2xl bg-purple-500/10 text-purple-400 text-xs font-mono tracking-widest">SELF AWARENESS (OPTIONAL)</div>
-            <h2 class="section-header mt-2">HOW FERAL ARE YOU<br>RIGHT NOW?</h2>
-        </div>
-
-        <div class="max-w-2xl mx-auto fun-card border border-white/10 rounded-3xl p-9">
-            <div class="mb-6">
-                <div class="flex justify-between text-sm mb-2 px-1">
-                    <div class="text-white/60">Sane</div>
-                    <div class="text-white/60">Absolute Menace</div>
-                </div>
-                <input type="range" id="feral-slider" min="0" max="100" step="5" value="47" 
-                       class="w-full accent-purple-500" oninput="updateFeralMeter()">
-            </div>
-            
-            <div id="feral-result" class="text-center py-8 px-6 bg-zinc-900/70 rounded-2xl text-2xl font-semibold">
-                You're at a solid 47% feral. Respectable. A little unhinged. I like it.
-            </div>
-
-            <button onclick="randomFeralReading()" class="mt-6 w-full py-3.5 border border-white/20 hover:bg-white/5 rounded-3xl font-medium flex items-center justify-center gap-x-2">
-                <i class="fa-solid fa-sync"></i> <span>GIVE ME A NEW READING</span>
-            </button>
-        </div>
-    </section>
-
-    <!-- FINAL CHAOS -->
-    <div class="max-w-4xl mx-auto px-6 pb-20 text-center">
-        <div class="rounded-3xl border border-white/10 bg-zinc-900/60 p-10">
-            <h3 class="text-3xl font-black tracking-tight mb-3">You made it this far.</h3>
-            <p class="text-white/60 max-w-sm mx-auto mb-7">That means you're one of us now. Go forth and cause problems (affectionately).</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://github.com/LivingNarratives/living-narratives" target="_blank" 
-                   class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/30 hover:bg-white/5 rounded-3xl font-semibold">
-                    <i class="fa-brands fa-github"></i> <span>STEAL THIS CHAOS</span>
-                </a>
-                <button onclick="showDeployModal()" 
-                        class="inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-white text-black font-bold rounded-3xl">
-                    MAKE IT LIVE
-                </button>
-            </div>
-        </div>
+        <button id="apply-btn" class="btn btn-huge btn-gold">▶ APPLY TO EXIST</button>
+        <div class="hero-fine">Application requires Form 27-B/6 and the surrender of your weekend.</div>
+      </div>
     </div>
 
-    <footer class="border-t border-white/10 py-8">
-        <div class="max-w-5xl mx-auto px-6 text-center text-xs text-white/40 font-mono tracking-widest">
-            BUILT WITH LOVE, LUST & QUESTIONABLE DECISIONS • FORK IT IF YOU DARE
-            <div class="mt-1.5">Made extra unhinged for you by Grok ❤️</div>
-        </div>
-    </footer>
+    <div class="panel process-panel">
+      <h3>📋 THE PROCESS <span class="muted">(simplified)</span></h3>
+      <ol id="process-steps" class="process-steps">
+        <li data-step="1">Submit Form 27-B/6</li>
+        <li data-step="2">Receive Forms 27-B/6-A, -B, and -C</li>
+        <li data-step="3">Wait</li>
+        <li data-step="4">Continue waiting</li>
+        <li data-step="5">Provisional Pre-Existence Hearing</li>
+        <li data-step="6">Resubmit everything (toner failure)</li>
+        <li data-step="7">Achieve Confirmed Existence™</li>
+        <li data-step="8">Existence revoked pending review</li>
+        <li data-step="9">Return to Step 1</li>
+      </ol>
+    </div>
+  </section>
 
-    <script>
-        function initializeTailwind() {
-            // Tailwind already loaded via CDN
-        }
-        
-        let spicyMode = false;
-        let lastResult = "";
-        
-        const spicyCompliments = [
-            "You're so hot the WiFi is lagging just trying to process you.",
-            "If being this fine was a crime, you'd be serving life with no parole and I'd be your cellmate.",
-            "You walked in and the temperature rose. The AC just filed a formal complaint.",
-            "Your vibe is illegal in at least 7 states and I'm ready to move.",
-            "You're not just a snack, you're the whole damn kitchen and I'm starving.",
-            "I would risk it all for you and by 'it all' I mean my sleep schedule and my dignity."
-        ];
-        
-        const feralAffirmations = [
-            "You are a beautiful menace and the universe is lowkey scared of you. Keep going.",
-            "Your chaos is valid. Your unhinged behavior is a personality trait now. Own it.",
-            "You are not 'too much'. Everyone else is just not enough.",
-            "The voices in your head are right. You ARE that bitch. Go be feral.",
-            "You contain multitudes. Most of them are unhinged. That's the best part.",
-            "You're doing amazing sweetie. Now go cause problems on purpose."
-        ];
-        
-        const chaosDateIdeas = [
-            "Break into a closed playground at 2am and have a deep conversation on the swings while eating gas station snacks.",
-            "Go to a 24-hour diner, order only desserts, and rank them like you're judges on a very serious competition.",
-            "Drive to the nearest body of water, sit on the hood of the car, and scream into the void together. Very therapeutic.",
-            "Find an open house, pretend you're serious buyers, and rate every room like it's a hotel. Bonus points if you leave a review on Google.",
-            "Go to a bookstore, pick out the most unhinged romance novel you can find, and read the spicy parts out loud to each other in the aisle.",
-            "Have a 'fancy' dinner at home but both of you have to wear the most ridiculous outfits you own."
-        ];
-        
-        const wouldYouRather = [
-            { q: "Would you rather have your search history read aloud at your wedding or have your Spotify Wrapped played at your funeral?", a: "Honestly both are terrifying. I'm choosing the funeral because at least I'm not there to witness it." },
-            { q: "Would you rather only be able to speak in spicy pick-up lines or only communicate through interpretive dance?", a: "Dance. I'm already unhinged enough without the verbal chaos." },
-            { q: "Would you rather have your mom read your group chats or your boss read your private Discord?", a: "Neither. I'm moving to the woods. Goodbye." },
-            { q: "Would you rather date someone who only communicates in memes or someone who only communicates in voice notes?", a: "Memes. At least I can screenshot and show my therapist." }
-        ];
-        
-        const gentleRoasts = [
-            "You're the human equivalent of a 'this meeting could have been an email' but in the best way possible.",
-            "Your vibe is 'I woke up like this' but we both know you set 3 alarms and still almost didn't make it.",
-            "You're like if chaos and good taste had a baby and then forgot to raise it properly. I love it."
-        ];
-        
-        const hotTakes = [
-            "Pineapple on pizza is fine. The real crime is people who put ketchup on steak. Seek help.",
-            "The 'reply all' button should require a 5-minute cooldown and a written essay explaining why you did it.",
-            "Being 'low maintenance' is just code for 'I have given up and I'm making it everyone else's problem'."
-        ];
-        
-        function getRandom(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
-        
-        function showResult(text, isSpicy = false) {
-            const box = document.getElementById('spicy-result');
-            lastResult = text;
-            
-            if (isSpicy && spicyMode) {
-                box.innerHTML = `<span class="spicy">${text}</span>`;
-                box.style.borderColor = '#ff6b6b';
-            } else {
-                box.innerHTML = text;
-                box.style.borderColor = 'rgba(255,255,255,0.1)';
-            }
-            
-            // fun little animation
-            box.style.transition = 'none';
-            box.style.transform = 'scale(0.96)';
-            setTimeout(() => {
-                box.style.transition = 'transform 0.3s ease';
-                box.style.transform = 'scale(1)';
-            }, 10);
-        }
-        
-        function giveSpicyCompliment() {
-            const compliment = getRandom(spicyCompliments);
-            showResult(compliment, true);
-            if (spicyMode) triggerSpicyEffect();
-        }
-        
-        function randomFeralAffirmation() {
-            const aff = getRandom(feralAffirmations);
-            showResult(aff);
-        }
-        
-        function randomChaosDateIdea() {
-            const idea = getRandom(chaosDateIdeas);
-            showResult(idea);
-        }
-        
-        function spicyWouldYouRather() {
-            const item = getRandom(wouldYouRather);
-            showResult(`<strong>${item.q}</strong><br><br><span class="text-white/70">${item.a}</span>`);
-        }
-        
-        function randomRoast() {
-            const roast = getRandom(gentleRoasts);
-            showResult(roast);
-        }
-        
-        function randomHotTake() {
-            const take = getRandom(hotTakes);
-            showResult(take);
-        }
-        
-        function summonSpicyChaos() {
-            const box = document.getElementById('spicy-result');
-            const spicyOptions = [...spicyCompliments, ...feralAffirmations.slice(0,2)];
-            let text = getRandom(spicyOptions);
-            
-            if (Math.random() > 0.5) {
-                text += " And honestly? I'd risk it all.";
-            }
-            
-            showResult(text, true);
-            triggerSpicyEffect();
-            
-            // extra chaos
-            setTimeout(() => {
-                if (Math.random() > 0.6) {
-                    box.style.boxShadow = '0 0 30px rgba(255, 107, 107, 0.6)';
-                    setTimeout(() => { if (box) box.style.boxShadow = 'none'; }, 1200);
-                }
-            }, 400);
-        }
-        
-        function triggerSpicyEffect() {
-            const body = document.body;
-            body.style.transition = 'filter 0.2s';
-            body.style.filter = 'saturate(1.4) hue-rotate(8deg)';
-            setTimeout(() => { body.style.filter = 'none'; }, 650);
-        }
-        
-        function toggleSpicyMode() {
-            spicyMode = document.getElementById('spicy-toggle').checked;
-            const box = document.getElementById('spicy-result');
-            
-            if (spicyMode) {
-                box.style.borderColor = '#ff6b6b';
-                if (lastResult) {
-                    box.innerHTML = `<span class="spicy">${lastResult}</span>`;
-                }
-                showToast("Spicy mode engaged. Everything just got hotter. You're welcome.");
-            } else {
-                box.style.borderColor = 'rgba(255,255,255,0.1)';
-                if (lastResult) box.innerHTML = lastResult;
-            }
-        }
-        
-        function updateFeralMeter() {
-            const slider = document.getElementById('feral-slider');
-            const result = document.getElementById('feral-result');
-            const val = parseInt(slider.value);
-            
-            let message = "";
-            if (val < 20) message = "You're at " + val + "%. Barely feral. A little concerning actually. Touch grass?";
-            else if (val < 40) message = "You're at " + val + "%. Mildly unhinged. Respectable starter chaos.";
-            else if (val < 60) message = "You're at " + val + "%. Solid feral. A little dangerous. I like it.";
-            else if (val < 80) message = "You're at " + val + "%. Oh we're in danger. Keep going.";
-            else message = "You're at " + val + "%. Absolute menace. The authorities have been notified (affectionately).";
-            
-            result.innerHTML = message;
-        }
-        
-        function randomFeralReading() {
-            const slider = document.getElementById('feral-slider');
-            const newVal = Math.floor(Math.random() * 101);
-            slider.value = newVal;
-            updateFeralMeter();
-            
-            if (newVal > 75) {
-                setTimeout(() => {
-                    showToast("The meter is scared of you. That's hot.");
-                }, 600);
-            }
-        }
-        
-        function triggerBigRedButton() {
-            const btns = document.querySelectorAll('.fun-card');
-            btns.forEach((b, i) => {
-                setTimeout(() => {
-                    b.style.transform = 'rotate(4deg)';
-                    setTimeout(() => { if (b) b.style.transform = 'rotate(-3deg)'; }, 180);
-                    setTimeout(() => { if (b) b.style.transform = 'none'; }, 380);
-                }, i * 80);
-            });
-            
-            showToast("You pressed the button. The chaos has been notified. Good luck.");
-            
-            setTimeout(() => {
-                if (Math.random() > 0.5) {
-                    giveSpicyCompliment();
-                } else {
-                    randomFeralAffirmation();
-                }
-            }, 900);
-        }
-        
-        function logoChaos() {
-            const logo = document.querySelector('.glitch');
-            if (!logo) return;
-            
-            logo.style.animation = 'none';
-            logo.offsetHeight;
-            logo.style.animation = 'glitch-anim 0.35s infinite, glitch-anim2 0.45s infinite';
-            
-            setTimeout(() => {
-                if (logo) logo.style.animation = 'glitch-skew 1.2s infinite linear alternate-reverse';
-            }, 1100);
-            
-            const messages = [
-                "The chaos noticed you. It's blushing.",
-                "Careful. The buttons are watching.",
-                "You have been marked by the unhinged gods.",
-                "This site just added you to its 'problematic favorites' list."
-            ];
-            showToast(messages[Math.floor(Math.random() * messages.length)]);
-        }
-        
-        function randomGlobalChaos() {
-            const actions = [
-                () => giveSpicyCompliment(),
-                () => randomFeralAffirmation(),
-                () => { document.getElementById('feral-slider').value = Math.floor(Math.random()*40)+60; updateFeralMeter(); },
-                () => summonSpicyChaos(),
-                () => triggerBigRedButton()
-            ];
-            actions[Math.floor(Math.random() * actions.length)]();
-        }
-        
-        function showToast(msg) {
-            const toast = document.createElement('div');
-            toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900 border border-white/20 px-6 py-3.5 rounded-3xl text-sm flex items-center gap-x-3 shadow-2xl z-[200]';
-            toast.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> <span>${msg}</span>`;
-            document.body.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.style.transition = 'all .35s ease';
-                toast.style.opacity = '0';
-                setTimeout(() => toast.parentNode.removeChild(toast), 280);
-            }, 2600);
-        }
-        
-        function clearResults() {
-            const box = document.getElementById('spicy-result');
-            box.innerHTML = 'Cleared. The chaos is resting. For now.';
-            box.style.borderColor = 'rgba(255,255,255,0.1)';
-            lastResult = "";
-        }
-        
-        function showDeployModal() {
-            const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-[200] p-6';
-            modal.innerHTML = `
-                <div class="max-w-md w-full bg-zinc-900 border border-white/20 rounded-3xl p-8">
-                    <div class="flex justify-between mb-6">
-                        <div class="font-bold text-2xl">Make This Chaos Live</div>
-                        <button onclick="this.closest('.fixed').remove()" class="text-3xl leading-none text-white/40 hover:text-white">&times;</button>
-                    </div>
-                    <div class="space-y-5 text-sm">
-                        <div>1. Go to <span class="font-mono text-pink-400">github.com/LivingNarratives/living-narratives</span></div>
-                        <div>2. Click <span class="font-semibold">Settings</span> → <span class="font-semibold">Pages</span></div>
-                        <div>3. Set Source to <span class="font-mono">Deploy from a branch</span></div>
-                        <div>4. Choose <span class="font-mono">main</span> + <span class="font-mono">/ (root)</span></div>
-                        <div>5. Save. Wait 60 seconds. Refresh the site.</div>
-                    </div>
-                    <div class="mt-7 pt-6 border-t border-white/10 text-xs text-white/50">Once it's live you can send the link to your friends and watch them question their life choices. You're welcome.</div>
-                </div>
-            `;
-            document.body.appendChild(modal);
-        }
-        
-        function initializeFeralSlider() {
-            const slider = document.getElementById('feral-slider');
-            slider.addEventListener('input', updateFeralMeter);
-            
-            // Easter egg
-            slider.addEventListener('click', function(e) {
-                if (e.shiftKey) {
-                    slider.value = 100;
-                    updateFeralMeter();
-                    showToast("MAXIMUM FERAL UNLOCKED. The authorities are on their way.");
-                }
-            });
-            
-            // Initial reading
-            setTimeout(updateFeralMeter, 600);
-        }
-        
-        function initializeKeyboardFun() {
-            let keys = [];
-            document.addEventListener('keydown', (e) => {
-                keys.push(e.key.toLowerCase());
-                if (keys.length > 8) keys.shift();
-                
-                if (keys.join('').includes('chaos')) {
-                    keys = [];
-                    showToast("You typed chaos. The site is proud of you.");
-                    document.getElementById('playground').scrollIntoView({behavior:'smooth'});
-                }
-            });
-        }
-        
-        function bootEverything() {
-            initializeTailwind();
-            initializeFeralSlider();
-            initializeKeyboardFun();
-            
-            // Gentle welcome
-            setTimeout(() => {
-                const box = document.getElementById('spicy-result');
-                if (box && box.innerText.includes('Hit any button')) {
-                    // nothing, just ready
-                }
-            }, 2800);
-            
-            console.log('%c[Living Chaos] Konami not included this time but shift-click the feral slider for max mode. Have fun being unhinged.', 'color:#555');
-        }
-        
-        window.onload = bootEverything;
-    </script>
+  <!-- RIGHT: pending forms tray + agent -->
+  <aside class="col col-right">
+    <section class="panel forms-panel">
+      <h3>🗂️ PENDING FORMS <span id="pending-count" class="pending-count">0</span></h3>
+      <div id="forms-tray" class="forms-tray">
+        <div class="forms-empty">No forms pending. This is itself suspicious. A form has been generated to investigate.</div>
+      </div>
+    </section>
+  </aside>
+</main>
+
+<!-- ===================== AGENT MALARKEY (MASCOT) ===================== -->
+<div id="agent" class="agent hidden">
+  <div id="agent-bubble" class="agent-bubble">
+    <span id="agent-text">...</span>
+    <div class="bubble-tail"></div>
+  </div>
+  <div id="agent-body" class="agent-body" title="Agent Malarkey, Senior Existence Officer (Provisional)">
+    <svg viewBox="0 0 120 120" class="agent-svg">
+      <circle cx="60" cy="60" r="52" class="a-ring-out"/>
+      <circle cx="60" cy="60" r="42" class="a-ring-in"/>
+      <text x="60" y="50" text-anchor="middle" class="a-mini">DEPT.</text>
+      <text x="60" y="92" text-anchor="middle" class="a-mini">OF YOU</text>
+      <circle cx="46" cy="60" r="11" class="a-eye"/><circle id="a-pup-l" cx="46" cy="62" r="5" class="a-pup"/>
+      <circle cx="74" cy="60" r="11" class="a-eye"/><circle id="a-pup-r" cx="74" cy="62" r="5" class="a-pup"/>
+      <path id="a-mouth" d="M48 78 Q60 84 72 78" class="a-mouth"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ===================== MODAL LAYER ===================== -->
+<div id="modal-layer" class="modal-layer hidden">
+  <div id="modal-card" class="modal-card">
+    <div class="modal-head"><span id="modal-title">FORM</span><button id="modal-x" class="modal-x">✕</button></div>
+    <div id="modal-body" class="modal-body"></div>
+    <div id="modal-foot" class="modal-foot"></div>
+  </div>
+</div>
+
+<!-- ===================== ACHIEVEMENTS DRAWER ===================== -->
+<div id="ach-drawer" class="ach-drawer hidden">
+  <div class="ach-head"><h3>🏅 CITATIONS OF MERIT</h3><button id="ach-close" class="modal-x">✕</button></div>
+  <div id="ach-list" class="ach-list"></div>
+  <div class="ach-foot">Citations are non-transferable, non-refundable, and may be revoked for existing too loudly.</div>
+</div>
+
+<!-- ===================== FULLSCREEN LOADER ===================== -->
+<div id="loader" class="loader hidden">
+  <div class="loader-inner">
+    <div class="loader-seal">◷</div>
+    <div id="loader-title" class="loader-title">PROCESSING</div>
+    <div class="loader-bar"><div id="loader-fill" class="loader-fill"></div></div>
+    <div id="loader-status" class="loader-status">Please wait. Or don't. We'll wait for you.</div>
+    <div id="loader-pct" class="loader-pct">0%</div>
+  </div>
+</div>
+
+<!-- ===================== TOAST / ACHIEVEMENT POPUPS ===================== -->
+<div id="toast-zone" class="toast-zone"></div>
+
+<!-- ===================== RANDOM EVENT: THE DUCK ===================== -->
+<div id="duck" class="duck">🦆</div>
+
+<!-- ===================== ENDING OVERLAY ===================== -->
+<div id="ending" class="ending hidden"><div id="ending-inner" class="ending-inner"></div></div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="gov-footer" class="gov-footer hidden">
+  <div class="foot-cols">
+    <div>
+      <h4>The Department</h4>
+      <a href="#" data-foot="org">Organizational Chart (47 pages)</a>
+      <a href="#" data-foot="hours">Hours of Operation</a>
+      <a href="#" data-foot="contact">Contact a Human (unavailable)</a>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a href="#" data-foot="appeal">Appeal Your Existence</a>
+      <a href="#" data-foot="duck">Duck Affairs Liaison</a>
+      <a href="#" data-foot="lost">Report a Lost Self</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="#" data-foot="terms">Terms of Being</a>
+      <a href="#" data-foot="privacy">We Have No Privacy Policy</a>
+      <a href="#" data-foot="secret">·</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>An official portal of the Federal Department of Confirmed Existence. This Department may or may not exist.
+    For emergencies, please form an orderly queue and wait to be acknowledged.</p>
+    <p class="foot-tiny">Page certified 100% organic, free-range, grass-fed bureaucracy. No frameworks were consulted. Konami code does nothing. (It does something.)</p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
 </body>
 </html>
